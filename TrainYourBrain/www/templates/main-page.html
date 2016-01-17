@@ -1,0 +1,56 @@
+﻿<ion-view view-title="Main" ng-controller="ExpressionController as expressionController">
+    <ion-header-bar align-title="center" class="bar-positive">
+        <h1 class="title">Train Your Brain</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="row">
+            <button class="button button-assertive" ng-click="expressionController.start()">Start!</button>
+            <div class="col">
+                <div class="row">
+                    <div class="col">Level:</div>
+                    <div class="col">1</div>
+                    <div class="col">Timer:</div>
+                    <div class="col">{{expressionController.timer}}</div>
+                </div>
+                <div class="row">
+                    <div class="col">Score:</div>
+                    <div class="col">{{expressionController.score}}</div>
+                    <div class="col">Lives:</div>
+                    <div class="col">{{expressionController.lives}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row-center">
+            <div class="card">
+                <div class="item item-text-wrap">
+                    {{expressionController.currentExpression.toString() + expressionController.userInput}}
+                </div>
+            </div>
+        </div>
+        <div class="row-bottom">
+            <div class="row">
+                <div class="col col-right button" ng-click="expressionController.eraseChar()">←</div>
+            </div>
+            <div class="row">
+                <div class="button col" ng-click="expressionController.appendChar(1)">1</div>
+                <div class="button col" ng-click="expressionController.appendChar(2)">2</div>
+                <div class="button col" ng-click="expressionController.appendChar(3)">3</div>
+            </div>
+            <div class="row">
+                <button class="button col" ng-click="expressionController.appendChar(4)">4</button>
+                <button class="button col" ng-click="expressionController.appendChar(5)">5</button>
+                <button class="button col" ng-click="expressionController.appendChar(6)">6</button>
+            </div>
+            <div class="row">
+                <button class="button col" ng-click="expressionController.appendChar(7)">7</button>
+                <button class="button col" ng-click="expressionController.appendChar(8)">8</button>
+                <button class="button col" ng-click="expressionController.appendChar(9)">9</button>
+            </div>
+            <div class="row">
+                <button class="button col" ng-click="expressionController.appendChar(0)">0</button>
+                <button class="button col" ng-click="expressionController.appendChar('-')">-</button>
+                <button class="button col" ng-click="expressionController.checkAnswer()">Enter</button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
