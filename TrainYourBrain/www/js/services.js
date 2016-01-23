@@ -11,7 +11,7 @@
         function createExpression() {
             var a = Math.floor(Math.random() * numberRange);
             var b = Math.floor(Math.random() * numberRange);
-            var operator = operators[Math.floor(Math.random() * 3)];
+            var operator = operators[Math.floor(Math.random() * operators.length)];
 
             return new Expression(a, b, operator);
         };

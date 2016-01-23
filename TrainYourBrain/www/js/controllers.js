@@ -2,7 +2,7 @@ angular
     .module('trainBrain.controllers', [])
     .controller('ExpressionController', ExpressionController);
 
-function ExpressionController($interval, expressionService) {
+function ExpressionController($interval, $ionicPopup, expressionService) {
     var timer;
     var vm = this;
 
@@ -10,7 +10,8 @@ function ExpressionController($interval, expressionService) {
         if (vm.lives > 0) {
             vm.currentExpression = expressionService.getExpression();
         } else {
-            
+            vm.showAlert();
+            $interval.cancel(timer);
         }
     };
 
@@ -46,20 +47,25 @@ function ExpressionController($interval, expressionService) {
         timer = $interval(timerTick, 1000)
     };
 
+    vm.showAlert = function () {
+        var alertPopup = $ionicPopup.alert({
+            title: 'Game Over',
+            template: "Your score: " + vm.score
+        });
+
+        alertPopup.then(function (res) {
+        });
+    };
+
     var timerTick = function () {
         vm.timer--;
         if (vm.timer == 0) {
-            vm.lives--
-            if (vm.lives == 0) {
-                $interval.cancel(timer);
-            } else {
-                vm.deployExpression();
-                vm.timer = 5;
-            }
+            vm.lives--           
+            vm.deployExpression();
+            vm.timer = 5;           
         }
     };
 }
-
 
 
 var init = function (scope) {
