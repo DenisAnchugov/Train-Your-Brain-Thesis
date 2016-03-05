@@ -1,10 +1,18 @@
 angular
-    .module('trainBrain.controllers', [])
-    .controller('ExpressionController', ExpressionController);
+    .module("trainBrain.controllers", [])
+    .controller("ExpressionController", ExpressionController);
 
 function ExpressionController($interval, $ionicPopup, expressionService) {
     var timer;
     var vm = this;
+    var timerTick = function () {
+        vm.timer--;
+        if (vm.timer === 0) {
+            vm.lives--;
+            vm.deployExpression();
+            vm.timer = 5;
+        }
+    };
 
     vm.deployExpression = function () {
         if (vm.lives > 0) {
@@ -16,7 +24,7 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
     };
 
     vm.eraseChar = function () {
-        if (vm.userInput.length != 0) {
+        if (vm.userInput.length !== 0) {
             vm.userInput = vm.userInput.slice(0, -1);
         }
     };
@@ -39,40 +47,30 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
         vm.deployExpression();
     };
 
-    vm.start = function myfunction() {
+    vm.start = function () {
         init(vm);
         if (timer) {
             $interval.cancel(timer);
         }
-        timer = $interval(timerTick, 1000)
+        timer = $interval(timerTick, 1000);
     };
 
     vm.showAlert = function () {
         var alertPopup = $ionicPopup.alert({
-            title: 'Game Over',
+            title: "Game Over",
             template: "Your score: " + vm.score
         });
 
         alertPopup.then(function (res) {
         });
     };
-
-    var timerTick = function () {
-        vm.timer--;
-        if (vm.timer == 0) {
-            vm.lives--           
-            vm.deployExpression();
-            vm.timer = 5;           
-        }
-    };
 }
-
 
 var init = function (scope) {
     scope.timer = 5;
     scope.score = 0;
     scope.lives = 3;
-    scope.userInput = '';
+    scope.userInput = "";
 
     scope.deployExpression();
 };

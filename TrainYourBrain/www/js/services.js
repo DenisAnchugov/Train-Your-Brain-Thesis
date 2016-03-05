@@ -1,14 +1,13 @@
 (function () {
-    angular
-        .module('trainBrain.services', [])
-        .factory('expressionService', expressionFactory);
+    angular.module("trainBrain.services", [])
+           .factory("expressionService", expressionFactory);
 
-    var operators = ['+', '-', '*'];
+    var operators = ["+", "-", "*"];
 
     function expressionFactory() {
         var numberRange = 8;
 
-        function createExpression() {
+        var createExpression = function () {
             var a = Math.floor(Math.random() * numberRange);
             var b = Math.floor(Math.random() * numberRange);
             var operator = operators[Math.floor(Math.random() * operators.length)];
@@ -31,16 +30,16 @@
         };
 
         function checkAnswer(userAnswer) {
-            return calculate() == userAnswer;
+            return calculate() === userAnswer;
         };
 
         function calculate() {
             switch (operator) {
-                case '+':
+                case "+":
                     return a + b;
-                case '-':
+                case "-":
                     return a - b;
-                case '*':
+                case "*":
                     return a * b;
             }
         };
