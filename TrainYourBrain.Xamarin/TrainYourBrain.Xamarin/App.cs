@@ -6,19 +6,7 @@ namespace TrainYourBrain.Core
     {
         public App()
         {
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            XAlign = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+            MainPage = new MainPage(new MainPageViewModel());
         }
 
         protected override void OnStart()
