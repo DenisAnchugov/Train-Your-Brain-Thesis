@@ -3,8 +3,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{A1FA34CF-7F88-498B-BDB0-FF94749A3842}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Exe</OutputType>
@@ -94,14 +92,16 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <ITunesArtwork Include="iTunesArtwork" />
-    <ITunesArtwork Include="iTunesArtwork@2x" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+    <Compile Include="IosTimer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TrainYourBrain.Xamarin\TrainYourBrain.Xamarin.csproj">
       <Name>TrainYourBrain.Xamarin</Name>
+      <Project>{8377DDD0-BD8D-4306-B906-85A1F124A10F}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -126,23 +126,19 @@
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
-    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Platform.iOS, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="Xamarin.Forms.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\packages\Xamarin.Forms.2.1.0.6524\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.1.0.6524\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.1.0.6524\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
