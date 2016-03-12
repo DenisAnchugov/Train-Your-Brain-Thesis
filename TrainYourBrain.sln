@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainYourBrain.Xamarin.iOS"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainYourBrain.Xamarin", "TrainYourBrain.Xamarin\TrainYourBrain.Xamarin\TrainYourBrain.Xamarin.csproj", "{8377DDD0-BD8D-4306-B906-85A1F124A10F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainYourBrain.Xamarin.Windows", "TrainYourBrain.Xamarin.Windows\TrainYourBrain.Xamarin.Windows.csproj", "{C5B10BB7-0F8D-4D3E-BE94-D148EB6E7A3D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainYourBrain.Xamarin.Windows", "TrainYourBrain.Xamarin\TrainYourBrain.Xamarin.Windows\TrainYourBrain.Xamarin.Windows.csproj", "{C5B10BB7-0F8D-4D3E-BE94-D148EB6E7A3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

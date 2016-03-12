@@ -28,6 +28,7 @@
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <ErrorReport>prompt</ErrorReport>
     <Prefer32Bit>true</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
@@ -131,7 +132,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TrainYourBrain.Xamarin\TrainYourBrain.Xamarin\TrainYourBrain.Xamarin.csproj">
+    <ProjectReference Include="..\TrainYourBrain.Xamarin\TrainYourBrain.Xamarin.csproj">
       <Project>{8377ddd0-bd8d-4306-b906-85a1f124a10f}</Project>
       <Name>TrainYourBrain.Xamarin</Name>
     </ProjectReference>
