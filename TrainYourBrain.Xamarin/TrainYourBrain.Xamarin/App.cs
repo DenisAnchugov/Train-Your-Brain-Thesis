@@ -4,9 +4,9 @@ namespace TrainYourBrain.Core
 {
     public class App : Application
     {
-        public App()
+        public App(ITimer timer)
         {
-            MainPage = new MainPage(new MainPageViewModel());
+            MainPage = new MainPage(new MainPageViewModel(new ExpressionFactory(), timer));
         }
 
         protected override void OnStart()

@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace TrainYourBrain.Core
 {
@@ -9,6 +10,38 @@ namespace TrainYourBrain.Core
             BindingContext = viewModel;
             InitializeComponent();
 
+            foreach (View view in InputGrid.Children)
+            {
+                view.SetBinding(View.IsEnabledProperty, "IsInputEnabled");
+            }
+        }
+
+        void AppendChar_OnClicked(object sender, EventArgs e)
+        {
+            AnswerField.Text += (sender as Button)?.Text;
+        }
+
+        void SubmitAnswer_OnClicked(object sender, EventArgs e)
+        {
+            if (AnswerField.Text.Length == 0) return;
+            (BindingContext as MainPageViewModel)?.CheckAnswerCommand.Execute(int.Parse(AnswerField.Text));
+            ClearAnswerField();
+        }
+
+        void Erase_OnClicked(object sender, EventArgs e)
+        {
+            if (AnswerField.Text.Length == 0) return;
+            AnswerField.Text = AnswerField.Text.Remove(AnswerField.Text.Length - 1);
+        }
+
+        void Start_OnClicked(object sender, EventArgs e)
+        {
+            ClearAnswerField();
+        }
+
+        void ClearAnswerField()
+        {
+            AnswerField.Text = String.Empty;
         }
     }
 }

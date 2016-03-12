@@ -3,12 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrainYourBrain.Core.MainPage">
   <StackLayout VerticalOptions="FillAndExpand">
-    <StackLayout Orientation="Horizontal">
-      <Button Text="Start"/>
-      <Grid>
+    
+    <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
+      <Button Text="Start" Command="{Binding StartCommand}" Clicked="Start_OnClicked"/>
+      <Grid HorizontalOptions="FillAndExpand">
         <Grid.RowDefinitions>
-          <RowDefinition Height="Auto"/>
-          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*"/>
@@ -17,22 +18,22 @@
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Text="Lives:"/>
-        <Label x:Name="Lives" Grid.Row="0" Grid.Column="1"/>
+        <Label x:Name="Lives" Text="{Binding PlayerStats.Lives}" Grid.Row="0" Grid.Column="1"/>
         <Label Grid.Row="0" Grid.Column="2" Text="Timer:"/>
-        <Label x:Name="Timer" Grid.Row="0" Grid.Column="3"/>
+        <Label x:Name="Timer" Text="{Binding PlayerStats.TimerCount}" Grid.Row="0" Grid.Column="3"/>
         <Label Grid.Row="1" Grid.Column="0" Text="Score:"/>
-        <Label x:Name="Score" Grid.Row="1" Grid.Column="1"/>
+        <Label x:Name="Score" Text="{Binding PlayerStats.Score}" Grid.Row="1" Grid.Column="1"/>
         <Label Grid.Row="1" Grid.Column="2" Text="Level:"/>
-        <Label x:Name="Level" Grid.Row="1" Grid.Column="3"/>
+        <Label x:Name="Level" Text="{Binding PlayerStats.Level}" Grid.Row="1" Grid.Column="3"/>
       </Grid>
     </StackLayout>
-    <Label Text="{Binding Message}" 
+    
+    <Label Text="{Binding ExpressionString}" 
            VerticalOptions="CenterAndExpand" 
-           HorizontalOptions="CenterAndExpand" />
-    <StackLayout Orientation="Horizontal" VerticalOptions="End">
-        
-    </StackLayout>
-    <Grid VerticalOptions="EndAndExpand">
+           HorizontalOptions="CenterAndExpand"
+           FontSize="32"/>
+
+    <Grid x:Name="InputGrid" VerticalOptions="EndAndExpand" >
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="*"/>
         <ColumnDefinition Width="*"/>
@@ -40,25 +41,29 @@
         <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
-        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
+        <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
-      <Label Text="answer here" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Center"/>
-      <Button Text="←" Grid.Row="0" Grid.Column="3"/>
-      <Button Text="1" Grid.Row="1" Grid.Column="0"/>
-      <Button Text="2" Grid.Row="1" Grid.Column="1"/>
-      <Button Text="3" Grid.Row="1" Grid.Column="2"/>
-      <Button Text="0" Grid.Row="1" Grid.Column="3"/>
-      <Button Text="5" Grid.Row="2" Grid.Column="0"/>
-      <Button Text="6" Grid.Row="2" Grid.Column="1"/>
-      <Button Text="7" Grid.Row="2" Grid.Column="2"/>
-      <Button Text="-" Grid.Row="2" Grid.Column="3"/>
-      <Button Text="8" Grid.Row="3" Grid.Column="0"/>
-      <Button Text="9" Grid.Row="3" Grid.Column="1"/>
-      <Button Text="0" Grid.Row="3" Grid.Column="2"/>
-      <Button Text="↵" Grid.Row="3" Grid.Column="3"/>
+
+      <Label x:Name="AnswerField" FontSize="24" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+      <Button Text="←" Grid.Row="0" Grid.Column="3" Clicked="Erase_OnClicked"/>
+
+      <Button Text="1" Grid.Row="1" Grid.Column="0" Clicked="AppendChar_OnClicked"/>
+      <Button Text="2" Grid.Row="1" Grid.Column="1" Clicked="AppendChar_OnClicked"/>
+      <Button Text="3" Grid.Row="1" Grid.Column="2" Clicked="AppendChar_OnClicked"/>
+      <Button Text="0" Grid.Row="1" Grid.Column="3" Clicked="AppendChar_OnClicked"/>
+
+      <Button Text="4" Grid.Row="2" Grid.Column="0" Clicked="AppendChar_OnClicked"/>
+      <Button Text="5" Grid.Row="2" Grid.Column="1" Clicked="AppendChar_OnClicked"/>
+      <Button Text="6" Grid.Row="2" Grid.Column="2" Clicked="AppendChar_OnClicked"/>
+      <Button Text="-" Grid.Row="2" Grid.Column="3" Clicked="AppendChar_OnClicked"/>
+
+      <Button Text="7" Grid.Row="3" Grid.Column="0" Clicked="AppendChar_OnClicked"/>
+      <Button Text="8" Grid.Row="3" Grid.Column="1" Clicked="AppendChar_OnClicked"/>
+      <Button Text="9" Grid.Row="3" Grid.Column="2" Clicked="AppendChar_OnClicked"/>
+      <Button Text="↵" Grid.Row="3" Grid.Column="3" Clicked="SubmitAnswer_OnClicked"/>
     </Grid>
   </StackLayout>
 </ContentPage>

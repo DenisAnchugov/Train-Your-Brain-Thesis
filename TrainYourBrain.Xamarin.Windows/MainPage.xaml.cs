@@ -6,7 +6,7 @@
         {
             this.InitializeComponent();
 
-            LoadApplication(new TrainYourBrain.Core.App());
+            LoadApplication(new TrainYourBrain.Core.App(new WindowsTimer()));
         }
     }
 }
