@@ -4,37 +4,25 @@ namespace TrainYourBrain.Core
 {
     public class ExpressionFactory
     {
-        int sumAndSubtractionNumRange = 30;
-        int multiplicationNumRange = 10;
-        int operatorRange = 3;
+        int numberRange = 8;
+        char[] operators = { '+', '-' };
 
-        public Expression CreateExpression(int level)
+        public Expression CreateExpression()
         {
             var random = new Random();
 
-            var operand1 = random.Next(sumAndSubtractionNumRange * level);
-            var operand2 = random.Next(sumAndSubtractionNumRange * level);
+            var operand1 = random.Next(numberRange);
+            var operand2 = random.Next(numberRange);
 
-            var multiplicant = random.Next(multiplicationNumRange * level);
-            var multiplier = random.Next(multiplicationNumRange * level);
+            var operatorSign = operators[random.Next(operators.Length)]; 
 
-            var sign = random.Next(operatorRange);
-            int result;
+            numberRange++;
+            return new Expression(operand1, operand2, operatorSign);
+        }
 
-            switch (sign)
-            {
-                case 0:
-                    result = operand1 + operand2;
-                    return new Expression(operand1, operand2, '+', result);
-
-                case 1:
-                    result = operand1 - operand2;
-                    return new Expression(operand1, operand2, '-', result);
-
-                default:
-                    result = multiplicant * multiplier;
-                    return new Expression(multiplicant, multiplier, '*', result);
-            }
+        public void Reset()
+        {
+            numberRange = 8;
         }
     }
 
@@ -43,20 +31,28 @@ namespace TrainYourBrain.Core
         int operand1;
         int operand2;
         char operatorSign;
-        int result;
 
-        public Expression(int operand1, int operand2, char operatorSign, int result)
+        public Expression(int operand1, int operand2, char operatorSign)
         {
             this.operand1 = operand1;
             this.operand2 = operand2;
             this.operatorSign = operatorSign;
-            this.operatorSign = operatorSign;
-            this.result = result;
         }
 
         public bool CheckAnswer(int userInput)
         {
-            return userInput == result;
+            return userInput == Calculate();
+        }
+
+        int Calculate()
+        {
+            switch (operatorSign)
+            {
+                case '+':
+                    return operand1 + operand2;
+                default:
+                    return operand1 - operand2;
+            }
         }
 
         public override string ToString()

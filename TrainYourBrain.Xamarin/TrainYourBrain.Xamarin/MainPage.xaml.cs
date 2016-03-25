@@ -9,7 +9,7 @@ namespace TrainYourBrain.Core
         {
             BindingContext = viewModel;
             InitializeComponent();
-			this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 0), 10, 5);
+			this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 10), 10, 5);
 
             foreach (View view in InputGrid.Children)
             {

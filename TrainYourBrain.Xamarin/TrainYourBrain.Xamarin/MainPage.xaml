@@ -3,33 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TrainYourBrain.Core.MainPage">
   <StackLayout VerticalOptions="FillAndExpand">
-    
+
+    <Button Text="Start" Command="{Binding StartCommand}" Clicked="Start_OnClicked"/>
     <StackLayout Orientation="Horizontal" VerticalOptions="StartAndExpand">
-      <Button Text="Start" Command="{Binding StartCommand}" Clicked="Start_OnClicked"/>
       <Grid HorizontalOptions="FillAndExpand">
-        <Grid.RowDefinitions>
-          <RowDefinition Height="*"/>
-          <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>
           <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
-        <Label Grid.Row="0" Grid.Column="0" Text="Lives:"/>
-        <Label x:Name="Lives" Text="{Binding PlayerStats.Lives}" Grid.Row="0" Grid.Column="1"/>
-        <Label Grid.Row="0" Grid.Column="2" Text="Timer:"/>
-        <Label x:Name="Timer" Text="{Binding PlayerStats.TimerCount}" Grid.Row="0" Grid.Column="3"/>
-        <Label Grid.Row="1" Grid.Column="0" Text="Score:"/>
-        <Label x:Name="Score" Text="{Binding PlayerStats.Score}" Grid.Row="1" Grid.Column="1"/>
-        <Label Grid.Row="1" Grid.Column="2" Text="Level:"/>
-        <Label x:Name="Level" Text="{Binding PlayerStats.Level}" Grid.Row="1" Grid.Column="3"/>
+        <Label Grid.Column="0" Text="Lives:"/>
+        <Label x:Name="Lives" Text="{Binding PlayerStats.Lives}" Grid.Column="1"/>
+        <Label Grid.Column="2" Text="Timer:"/>
+        <Label x:Name="Timer" Text="{Binding PlayerStats.TimerCount}" Grid.Column="3"/>
+        <Label Grid.Column="4" Text="Score:"/>
+        <Label x:Name="Score" Text="{Binding PlayerStats.Score}" Grid.Column="5"/>
       </Grid>
     </StackLayout>
-    
-    <Label Text="{Binding ExpressionString}" 
-           VerticalOptions="CenterAndExpand" 
+
+    <Label Text="{Binding ExpressionString}"
+           VerticalOptions="CenterAndExpand"
            HorizontalOptions="CenterAndExpand"
            FontSize="32"/>
 

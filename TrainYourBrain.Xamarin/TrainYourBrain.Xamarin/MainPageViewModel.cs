@@ -90,6 +90,7 @@ namespace TrainYourBrain.Core
 
         void StartRound()
         {
+            expressionFactory.Reset();
             IsInputEnabled = true;
             timer.Stop();
             InitializePlayerStats();
@@ -101,7 +102,7 @@ namespace TrainYourBrain.Core
         {
             if (PlayerStats.Lives != 0)
             {
-                expression = expressionFactory.CreateExpression(PlayerStats.Level);
+                expression = expressionFactory.CreateExpression();
                 ExpressionString = expression.ToString();
             }
             else
