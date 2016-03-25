@@ -48,6 +48,7 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
     };
 
     vm.start = function () {
+        expressionService.reset();
         init(vm);
         if (timer) {
             $interval.cancel(timer);

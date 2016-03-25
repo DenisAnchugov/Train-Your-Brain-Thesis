@@ -2,7 +2,7 @@
     angular.module("trainBrain.services", [])
            .factory("expressionService", expressionFactory);
 
-    var operators = ["+", "-", "*"];
+    var operators = ["+", "-"];
 
     function expressionFactory() {
         var numberRange = 8;
@@ -19,6 +19,9 @@
             getExpression: function () {
                 numberRange++;
                 return createExpression();
+            },
+            reset: function () {
+                numberRange = 8;
             }
         };
     };
@@ -39,15 +42,13 @@
                     return a + b;
                 case "-":
                     return a - b;
-                case "*":
-                    return a * b;
             }
         };
 
         return {
             checkAnswer: checkAnswer,
             toString: toString
-        };
+        }
     };
 })();
 

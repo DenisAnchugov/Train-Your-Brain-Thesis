@@ -1,4 +1,9 @@
-.scroll-bar-indicator
-{
-	display: none;
+.scroll-bar-indicator {
+    display: none;
+}
+
+.fixed-bottom{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
