@@ -6,12 +6,12 @@
                     <button class="button button-block button-assertive" ng-click="ec.start()">Start!</button>
                 </div>
                 <div class="row">
+                    <div class="col">Lives:</div>
+                    <div class="col">{{ec.lives}}</div>
                     <div class="col">Timer:</div>
                     <div class="col">{{ec.timer}}</div>
                     <div class="col">Score:</div>
                     <div class="col">{{ec.score}}</div>
-                    <div class="col">Lives:</div>
-                    <div class="col">{{ec.lives}}</div>
                 </div>
             </div>
         </div>
@@ -21,25 +21,25 @@
     </ion-content>
     <div class="row-bottom fixed-bottom">
         <div class="row">           
-            <div class="col-25 col-offset-75 col-right button" ng-click="ec.eraseChar()">←</div>
+            <div class="col-25 col-offset-75 col-right button" ng-disabled="ec.isInputDisabled" ng-click="ec.eraseChar()">←</div>
         </div>
         <div class="row">
-            <button class="button col" ng-click="ec.appendChar(1)">1</button>
-            <button class="button col" ng-click="ec.appendChar(2)">2</button>
-            <button class="button col" ng-click="ec.appendChar(3)">3</button>
-            <button class="button col" ng-click="ec.appendChar(0)">0</button>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(1)">1</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(2)">2</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(3)">3</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(0)">0</div>
         </div>
         <div class="row">
-            <button class="button col" ng-click="ec.appendChar(4)">4</button>
-            <button class="button col" ng-click="ec.appendChar(5)">5</button>
-            <button class="button col" ng-click="ec.appendChar(6)">6</button>
-            <button class="button col" ng-click="ec.appendChar('-')">-</button>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(4)">4</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(5)">5</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(6)">6</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar('-')">-</div>
         </div>
         <div class="row">
-            <button class="button col" ng-click="ec.appendChar(7)">7</button>
-            <button class="button col" ng-click="ec.appendChar(8)">8</button>
-            <button class="button col" ng-click="ec.appendChar(9)">9</button>
-            <button class="button col" ng-click="ec.checkAnswer()">Enter</button>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(7)">7</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(8)">8</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.appendChar(9)">9</div>
+            <div class="button col" ng-disabled="ec.isInputDisabled" ng-click="ec.checkAnswer()">Enter</div>
         </div>
     </div>
 </ion-view>

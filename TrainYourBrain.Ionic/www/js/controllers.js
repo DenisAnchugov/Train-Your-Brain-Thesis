@@ -5,6 +5,8 @@ angular
 function ExpressionController($interval, $ionicPopup, expressionService) {
     var timer;
     var vm = this;
+    vm.isInputDisabled = true;
+
     var timerTick = function () {
         vm.timer--;
         if (vm.timer === 0) {
@@ -62,7 +64,8 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
             template: "Your score: " + vm.score
         });
 
-        alertPopup.then(function (res) {
+        alertPopup.then(function () {
+            vm.isInputDisabled = true;
         });
     };
 }
@@ -72,6 +75,8 @@ var init = function (scope) {
     scope.score = 0;
     scope.lives = 3;
     scope.userInput = "";
+    scope.isInputDisabled = false;
+    
 
     scope.deployExpression();
 };
