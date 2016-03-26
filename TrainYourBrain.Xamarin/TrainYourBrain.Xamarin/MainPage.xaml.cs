@@ -9,7 +9,7 @@ namespace TrainYourBrain.Core
         {
             BindingContext = viewModel;
             InitializeComponent();
-			this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 10), 10, 5);
+            this.Padding = new Thickness(10, Device.OnPlatform(20, 0, 10), 10, 5);
 
             foreach (View view in InputGrid.Children)
             {
@@ -25,7 +25,8 @@ namespace TrainYourBrain.Core
         void SubmitAnswer_OnClicked(object sender, EventArgs e)
         {
             if (AnswerField.Text.Length == 0) return;
-            (BindingContext as MainPageViewModel)?.CheckAnswerCommand.Execute(int.Parse(AnswerField.Text));
+            var viewModel = BindingContext as MainPageViewModel;
+            viewModel?.CheckAnswerCommand.Execute(int.Parse(AnswerField.Text));
             ClearAnswerField();
         }
 

@@ -6,22 +6,9 @@ namespace TrainYourBrain.Core
     {
         public App(ITimer timer)
         {
-            MainPage = new MainPage(new MainPageViewModel(new ExpressionFactory(), timer));
-        }
-
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
+            var expressionFactory = new ExpressionFactory();
+            var mainPageViewModel = new MainPageViewModel(expressionFactory, timer);
+            MainPage = new MainPage(mainPageViewModel);
         }
     }
 }

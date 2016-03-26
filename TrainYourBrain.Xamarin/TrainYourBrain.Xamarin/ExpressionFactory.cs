@@ -14,7 +14,7 @@ namespace TrainYourBrain.Core
             var operand1 = random.Next(numberRange);
             var operand2 = random.Next(numberRange);
 
-            var operatorSign = operators[random.Next(operators.Length)]; 
+            var operatorSign = operators[random.Next(operators.Length)];
 
             numberRange++;
             return new Expression(operand1, operand2, operatorSign);

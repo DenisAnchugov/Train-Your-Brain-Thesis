@@ -43,7 +43,12 @@
         <RowDefinition Height="*"/>
       </Grid.RowDefinitions>
 
-      <Label x:Name="AnswerField" FontSize="24" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3"/>
+      <Label x:Name="AnswerField"
+             FontSize="24"
+             HorizontalTextAlignment="Center"
+             Grid.Row="0"
+             Grid.Column="0"
+             Grid.ColumnSpan="3"/>
       <Button Text="←" Grid.Row="0" Grid.Column="3" Clicked="Erase_OnClicked"/>
 
       <Button Text="1" Grid.Row="1" Grid.Column="0" Clicked="AppendChar_OnClicked"/>

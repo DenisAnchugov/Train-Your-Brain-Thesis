@@ -1,8 +1,7 @@
-angular
-    .module("trainBrain.controllers", [])
-    .controller("ExpressionController", ExpressionController);
+angular.module("trainBrain.controllers", [])
+       .controller("expressionController", expressionController);
 
-function ExpressionController($interval, $ionicPopup, expressionService) {
+function expressionController($interval, $ionicPopup, expressionFactory) {
     var timer;
     var vm = this;
     vm.isInputDisabled = true;
@@ -16,9 +15,19 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
         }
     };
 
+    var init = function () {
+        vm.timer = 5;
+        vm.score = 0;
+        vm.lives = 3;
+        vm.userInput = "";
+        vm.isInputDisabled = false;
+
+        vm.deployExpression();
+    };
+
     vm.deployExpression = function () {
         if (vm.lives > 0) {
-            vm.currentExpression = expressionService.getExpression();
+            vm.currentExpression = expressionFactory.getExpression();
         } else {
             vm.showAlert();
             $interval.cancel(timer);
@@ -50,7 +59,7 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
     };
 
     vm.start = function () {
-        expressionService.reset();
+        expressionFactory.reset();
         init(vm);
         if (timer) {
             $interval.cancel(timer);
@@ -69,14 +78,3 @@ function ExpressionController($interval, $ionicPopup, expressionService) {
         });
     };
 }
-
-var init = function (scope) {
-    scope.timer = 5;
-    scope.score = 0;
-    scope.lives = 3;
-    scope.userInput = "";
-    scope.isInputDisabled = false;
-    
-
-    scope.deployExpression();
-};

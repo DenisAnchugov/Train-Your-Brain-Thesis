@@ -13,8 +13,8 @@ namespace TrainYourBrain.Core
         ITimer timer;
 
         PlayerStats playerStats;
-        Expression expression;
-        string expressionString;
+        Expression currentExpression;
+        string currentExpressionString;
         bool isInputEnabled;
 
         public PlayerStats PlayerStats
@@ -41,11 +41,11 @@ namespace TrainYourBrain.Core
 
         public string ExpressionString
         {
-            get { return expressionString; }
+            get { return currentExpressionString; }
             set
             {
-                if (expressionString == value) return;
-                expressionString = value;
+                if (currentExpressionString == value) return;
+                currentExpressionString = value;
                 OnPropertyChanged();
             }
         }
@@ -66,7 +66,6 @@ namespace TrainYourBrain.Core
         {
             PlayerStats = new PlayerStats()
             {
-                Level = 1,
                 Lives = 3,
                 Score = 0,
                 TimerCount = 5
@@ -76,7 +75,7 @@ namespace TrainYourBrain.Core
         void CheckAnswer(int answer)
         {
             if (PlayerStats.Lives == 0) return;
-            if (expression.CheckAnswer(answer))
+            if (currentExpression.CheckAnswer(answer))
             {
                 PlayerStats.Score++;
             }
@@ -102,8 +101,8 @@ namespace TrainYourBrain.Core
         {
             if (PlayerStats.Lives != 0)
             {
-                expression = expressionFactory.CreateExpression();
-                ExpressionString = expression.ToString();
+                currentExpression = expressionFactory.CreateExpression();
+                ExpressionString = currentExpression.ToString();
             }
             else
             {
@@ -131,9 +130,9 @@ namespace TrainYourBrain.Core
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string propName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
     }
 }

@@ -8,7 +8,6 @@ namespace TrainYourBrain.Core
     {
         int lives;
         int score;
-        int level;
         int timerCount;
 
         public int Lives
@@ -29,17 +28,6 @@ namespace TrainYourBrain.Core
             {
                 if (score == value) return;
                 score = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int Level
-        {
-            get { return level; }
-            set
-            {
-                if (level == value) return;
-                level = value;
                 OnPropertyChanged();
             }
         }
